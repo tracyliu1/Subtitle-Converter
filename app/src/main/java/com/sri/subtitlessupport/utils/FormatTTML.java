@@ -42,7 +42,7 @@ import org.w3c.dom.NodeList;
 public class FormatTTML implements TimedTextFileFormat {
 
 
-	public TimedTextObject parseFile(String fileName, InputStream is) throws IOException, FatalParsingException {
+	public TimedTextObject parseFile(String fileName, InputStream is,String lang) throws IOException, FatalParsingException {
 
 		TimedTextObject tto = new TimedTextObject();
 		tto.fileName = fileName;

@@ -37,7 +37,7 @@ import java.util.Iterator;
 public class FormatSRT implements TimedTextFileFormat {
 
 
-	public TimedTextObject parseFile(String fileName, InputStream is) throws IOException {
+	public TimedTextObject parseFile(String fileName, InputStream is,String lang) throws IOException {
 
 		TimedTextObject tto = new TimedTextObject();
 		Caption caption = new Caption();
@@ -45,7 +45,7 @@ public class FormatSRT implements TimedTextFileFormat {
 		boolean allGood;
 
 		//first lets load the file
-		InputStreamReader in= new InputStreamReader(is);
+		InputStreamReader in= new InputStreamReader(is,Utils.getLangEncoding(lang));
 		BufferedReader br = new BufferedReader(in);
 
 		//the file name is saved

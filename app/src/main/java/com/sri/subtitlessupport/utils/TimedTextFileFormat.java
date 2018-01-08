@@ -39,7 +39,7 @@ public interface TimedTextFileFormat {
 	 * @return TimedTextObject representing the parsed file
 	 * @throws IOException when having trouble reading the file from the given path
 	 */
-	TimedTextObject parseFile(String fileName, InputStream is) throws IOException, FatalParsingException;
+	TimedTextObject parseFile(String fileName, InputStream is,String lang) throws IOException, FatalParsingException;
 	
 	/**
 	 * This method transforms a given TimedTextObject into a formated subtitle file

@@ -35,7 +35,8 @@ import java.util.Iterator;
  */
 public class FormatASS implements TimedTextFileFormat {
 
-	public TimedTextObject parseFile(String fileName, InputStream is) throws IOException {
+	@Override
+	public TimedTextObject parseFile(String fileName, InputStream is, String language) throws IOException {
 		
 		TimedTextObject tto = new TimedTextObject();
 		tto.fileName = fileName;
@@ -54,7 +55,7 @@ public class FormatASS implements TimedTextFileFormat {
 		String [] dialogueFormat;
 
 		//first lets load the file
-		InputStreamReader in= new InputStreamReader(is);
+		InputStreamReader in= new InputStreamReader(is ,Utils.getLangEncoding(language));
 		BufferedReader br = new BufferedReader(in);
 
 		String line;
@@ -312,7 +313,7 @@ public class FormatASS implements TimedTextFileFormat {
 			line+=",,0000,0000,0000,,";
 
 			//we add the caption text with \N as line breaks  and clean of XML
-			line +=  current.content.replaceAll("<br />","·N").replaceAll("\\<.*?\\>", "").replace('·', '\\');
+			line +=  current.content.replaceAll("<br />","ï¿½N").replaceAll("\\<.*?\\>", "").replace('ï¿½', '\\');
 			//and we add the caption line
 			file.add(index++,line);
 		}
